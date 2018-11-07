@@ -33,6 +33,9 @@ namespace Aspose_Document_Converter_Test_WinForms
 
         private void openSrcDocButton_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
+            progressBar1.Minimum = 0;
+            
             String[] srcDocumentPath = null;
 
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -52,6 +55,7 @@ namespace Aspose_Document_Converter_Test_WinForms
             {
                 srcDocumentPath = fileDialog.FileNames;
                 srcDirectoryPath = Path.GetDirectoryName(fileDialog.FileNames[0]);
+                progressBar1.Maximum = fileDialog.FileNames.Length;
             }
 
             if (srcDocumentPath.IsNullOrEmpty())
@@ -90,10 +94,11 @@ namespace Aspose_Document_Converter_Test_WinForms
                     //
                 }
 
-                //workaround..wenn doc.OriginalFileName = datei.odt könnte eigentlich nur durch Angabe anhand von saveFormat datei.odt.docx werden, speichert dann aber nicht, daher
+                //workaround..wenn 'doc.OriginalFileName' = 'datei.odt' könnte eigentlich nur durch Angabe anhand von 'saveFormat' 'datei.odt.docx' werden, speichert dann aber nicht, daher
                 //originale dateiendung entfernen und ziel-endung setzen
                 string filenameWithoutExtension = doc.OriginalFileName.Substring(0, doc.OriginalFileName.LastIndexOf('.'));
                 doc.Save(filenameWithoutExtension + filetype, saveFormat);
+                progressBar1.Value += 1;
             }
         }
     }

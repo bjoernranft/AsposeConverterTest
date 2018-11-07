@@ -31,11 +31,12 @@
             this.openSrcDocButton = new System.Windows.Forms.Button();
             this.convertTypesCombobox = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // openSrcDocButton
             // 
-            this.openSrcDocButton.Location = new System.Drawing.Point(258, 69);
+            this.openSrcDocButton.Location = new System.Drawing.Point(265, 69);
             this.openSrcDocButton.Name = "openSrcDocButton";
             this.openSrcDocButton.Size = new System.Drawing.Size(149, 45);
             this.openSrcDocButton.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(107, 146);
+            this.richTextBox1.Location = new System.Drawing.Point(118, 243);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(434, 125);
             this.richTextBox1.TabIndex = 3;
@@ -61,11 +62,20 @@
     "en in einem gemeinsamen Verzeichnis liegen.  Die konvertierten Dokumente werden " +
     "im selben Verzeichnis gespeichert.";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(118, 144);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(434, 23);
+            this.progressBar1.TabIndex = 4;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.convertTypesCombobox);
             this.Controls.Add(this.openSrcDocButton);
@@ -80,6 +90,7 @@
         private System.Windows.Forms.Button openSrcDocButton;
         private System.Windows.Forms.ComboBox convertTypesCombobox;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
