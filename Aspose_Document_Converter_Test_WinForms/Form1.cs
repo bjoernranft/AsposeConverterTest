@@ -29,12 +29,13 @@ namespace Aspose_Document_Converter_Test_WinForms
             convertTypesCombobox.DisplayMember = "Value";
             convertTypesCombobox.ValueMember = "Key";
             convertTypesCombobox.DataSource = new BindingSource(comboItems, null);
+
+            progressBar1.Minimum = 0;
         }
 
         private void openSrcDocButton_Click(object sender, EventArgs e)
         {
             progressBar1.Value = 0;
-            progressBar1.Minimum = 0;
             
             String[] srcDocumentPath = null;
 
