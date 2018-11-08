@@ -23,8 +23,10 @@ namespace Aspose_Document_Converter_Test_WinForms
             Dictionary<int, string> comboItems = new Dictionary<int, string>();
             comboItems.Add(0, "ODT's TO DOCX's");
             comboItems.Add(1, "ODT's TO PDF's");
-            comboItems.Add(2, "DOCX's TO ODT's");
-            comboItems.Add(3, "DOCX's TO PDF's");
+            comboItems.Add(2, "OTT's TO DOCX's");
+            comboItems.Add(3, "OTT's TO PDF's");
+            comboItems.Add(4, "DOCX's TO ODT's");
+            comboItems.Add(5, "DOCX's TO PDF's");
 
             convertTypesCombobox.DisplayMember = "Value";
             convertTypesCombobox.ValueMember = "Key";
@@ -46,6 +48,9 @@ namespace Aspose_Document_Converter_Test_WinForms
             if (selectedFormat == 0 || selectedFormat == 1)
             {
                 fileDialog.Filter = "ODT Documents|*.odt";
+            } else if (selectedFormat == 2 || selectedFormat == 3)
+            {
+                fileDialog.Filter = "OTT Templates|*.ott";
             } else
             {
                 fileDialog.Filter = "DOCX Documents|*.docx";
@@ -78,15 +83,15 @@ namespace Aspose_Document_Converter_Test_WinForms
                 Aspose.Words.SaveFormat saveFormat = SaveFormat.Unknown;
                 string filetype = string.Empty; 
 
-                if (selectedFormat == 0)
+                if (selectedFormat == 0 || selectedFormat == 2)
                 {
                     saveFormat = Aspose.Words.SaveFormat.Docx;
                     filetype = ".docx";
-                } else if (selectedFormat == 1 || selectedFormat == 3)
+                } else if (selectedFormat == 1 || selectedFormat == 3 || selectedFormat == 5)
                 {
                     saveFormat = Aspose.Words.SaveFormat.Pdf;
                     filetype = ".pdf";
-                } else if (selectedFormat == 2)
+                } else if (selectedFormat == 4)
                 {
                     saveFormat = Aspose.Words.SaveFormat.Odt;
                     filetype = ".odt";
