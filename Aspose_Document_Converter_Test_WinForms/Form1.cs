@@ -25,8 +25,10 @@ namespace Aspose_Document_Converter_Test_WinForms
             comboItems.Add(1, "ODT's TO PDF's");
             comboItems.Add(2, "OTT's TO DOCX's");
             comboItems.Add(3, "OTT's TO PDF's");
-            comboItems.Add(4, "DOCX's TO ODT's");
-            comboItems.Add(5, "DOCX's TO PDF's");
+            comboItems.Add(4, "OTT's TO HTML");
+            comboItems.Add(5, "DOCX's TO ODT's");
+            comboItems.Add(6, "DOCX's TO PDF's");
+            comboItems.Add(7, "DOCX's TO HTML");
 
             convertTypesCombobox.DisplayMember = "Value";
             convertTypesCombobox.ValueMember = "Key";
@@ -48,7 +50,7 @@ namespace Aspose_Document_Converter_Test_WinForms
             if (selectedFormat == 0 || selectedFormat == 1)
             {
                 fileDialog.Filter = "ODT Documents|*.odt";
-            } else if (selectedFormat == 2 || selectedFormat == 3)
+            } else if (selectedFormat == 2 || selectedFormat == 3 || selectedFormat == 4)
             {
                 fileDialog.Filter = "OTT Templates|*.ott";
             } else
@@ -87,14 +89,18 @@ namespace Aspose_Document_Converter_Test_WinForms
                 {
                     saveFormat = Aspose.Words.SaveFormat.Docx;
                     filetype = ".docx";
-                } else if (selectedFormat == 1 || selectedFormat == 3 || selectedFormat == 5)
+                } else if (selectedFormat == 1 || selectedFormat == 3 || selectedFormat == 6)
                 {
                     saveFormat = Aspose.Words.SaveFormat.Pdf;
                     filetype = ".pdf";
-                } else if (selectedFormat == 4)
+                } else if (selectedFormat == 5)
                 {
                     saveFormat = Aspose.Words.SaveFormat.Odt;
                     filetype = ".odt";
+                } else if (selectedFormat == 4 || selectedFormat == 7)
+                {
+                    saveFormat = Aspose.Words.SaveFormat.Html;
+                    filetype = ".html";
                 } else
                 {
                     //
